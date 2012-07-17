@@ -5,11 +5,6 @@ namespace Misak\Model;
 use Framework\BaseModel;
 use Nette\Database\Connection;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of NetModel
  *
@@ -55,6 +50,10 @@ class NetModel extends BaseModel {
 				throw new AbortException("Magic packet failed!");
 			}
 		}
+	}
+
+	public function isTurnedOn() {
+		return false;
 	}
 
 }

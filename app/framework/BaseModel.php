@@ -4,11 +4,6 @@ namespace Framework;
 
 use Nette\DI\Container;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of BaseModel
  *
