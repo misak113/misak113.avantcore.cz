@@ -29,7 +29,12 @@ $configurator->addConfig(__DIR__ . '/config/config.neon');
 $container = $configurator->createContainer();
 
 // Setup router
+
+
 $container->router[] = new Route('index.php', 'Homepage:default', Route::ONE_WAY);
+
+$container->router[] = new Route('<action turnedOn|wakeOn>/<name>', 'Control:default');
+
 $container->router[] = new Route('<presenter>/<action>[/<id>]', 'Site:default');
 
 

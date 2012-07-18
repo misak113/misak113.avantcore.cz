@@ -3,6 +3,7 @@
 use Nette\Application\Responses\JsonResponse;
 use Misak\Model\NetModel;
 use Nette\Application\AbortException;
+use Misak\Application\BasePresenter;
 
 /**
  * Description of ControlPresenter
@@ -22,18 +23,33 @@ class ControlPresenter extends BasePresenter {
 
 
 	public function renderTurnedOn() {
-		$pc = $this->context->parameters['PCs']['mainPc'];
-
+		$pcName = $this->getParameter('name', NULL);
 		$payload = $this->payload;
+		if (!isset($this->context->parameters['computers'][$pcName])) {
+			$payload->status = 'error';
+			$payload->message = 'Bad computer name.';
+			$response = new JsonResponse($payload);
+			$this->sendResponse($response);
+		}
+		$pc = $this->context->parameters['computers'][$pcName];
+		$payload->status = 'ok';
 		$payload->turnedOn = $this->netModel->isTurnedOn($pc['ip']);
-		$response = new JsonResponse($payload);
 
+		$response = new JsonResponse($payload);
 		$this->sendResponse($response);
 	}
 
 	public function renderWakeOn() {
-		$pc = $this->context->parameters['PCs']['mainPc'];
-
+		$pcName = $this->getParameter('name', NULL);
+		$payload = $this->payload;
+		if (!isset($this->context->parameters['computers'][$pcName])) {
+			$payload->status = 'error';
+			$payload->message = 'Bad computer name.';
+			$response = new JsonResponse($payload);
+			$this->sendResponse($response);
+		}
+		$pc = $this->context->parameters['computers'][$pcName];
+		
 		// Port number where the computer is listening. Usually, any number between 1-50000 will do. Normally people choose 7 or 9.
 		$socket_number = "7";
 		// MAC Address of the listening computer's network device

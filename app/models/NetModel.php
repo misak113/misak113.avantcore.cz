@@ -12,12 +12,6 @@ use Nette\Database\Connection;
  */
 class NetModel extends BaseModel {
 	
-	/** @var Connection */
-	protected $connection;
-
-	public function setContext(Connection $connection) {
-		$this->connection = $connection;
-	}
 
 	public function wakeOnLan($addr, $mac, $socket_number) {
 		$return = array();
@@ -55,11 +49,33 @@ class NetModel extends BaseModel {
 	}
 
 	public function isTurnedOn($ip) {
-		$ip = 'www.seznam.cz';
-		$curl = curl_init('http://'.$ip);
-		$content = curl_getinfo($curl);
-		$turnedOn = $content['http_code'] == 200? true :false;
+		//$ip = 'www.seznam.cz';
+		$turnedOn = $this->urlExists('http://'.$ip);
 		return $turnedOn;
+	}
+
+	protected function urlExists($url) {
+		$a_url = parse_url($url);
+		if (!isset($a_url['port']))
+			$a_url['port'] = 80;
+		$errno = 0;
+		$errstr = '';
+		$timeout = 30;
+		if (isset($a_url['host']) && $a_url['host'] != gethostbyname($a_url['host'])) {
+			$fid = fsockopen($a_url['host'], $a_url['port'], $errno, $errstr, $timeout);
+			if (!$fid)
+				return false;
+			$page = isset($a_url['path']) ? $a_url['path'] : '';
+			$page = $page ? $page :'/';
+			$page .= isset($a_url['query']) ? '?' . $a_url['query'] : '';
+			$request = 'HEAD ' . $page . ' HTTP/1.1' . "\r\n" . 'Host: ' . $a_url['host'] . "\r\n\r\n";
+			fputs($fid, $request);
+			$head = fread($fid, 4096);
+			fclose($fid);
+			return (boolean)preg_match('#^HTTP/.*\s+[200|302]+\s#i', $head);
+		} else {
+			return false;
+		}
 	}
 
 }

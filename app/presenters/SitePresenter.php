@@ -1,6 +1,7 @@
 <?php
 
 use Misak\Model\NetModel;
+use Misak\Application\BasePresenter;
 
 /**
  * Homepage presenter.
@@ -18,7 +19,9 @@ class SitePresenter extends BasePresenter {
 	}
 
 	public function renderDefault() {
-		
+
+		$computers = $this->context->parameters['computers'];
+		$this->template->computers = $computers;
 	}
 
 	
