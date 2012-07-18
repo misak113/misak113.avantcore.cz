@@ -14,9 +14,10 @@ common:
 			password: 
 
 
-		mainPc:
-			mac: "90:2B:34:12:09:32"
-			ip: "192.168.1.215"
+		PCs:
+			mainPc:
+				mac: "90:2B:34:12:09:32"
+				ip: "192.168.1.215"
 
 	php:
 		date.timezone: Europe/Prague

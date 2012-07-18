@@ -12,9 +12,11 @@ use Nette\Database\Connection;
  */
 class NetModel extends BaseModel {
 	
+	/** @var Connection */
+	protected $connection;
 
 	public function setContext(Connection $connection) {
-
+		$this->connection = $connection;
 	}
 
 	public function wakeOnLan($addr, $mac, $socket_number) {
@@ -52,8 +54,12 @@ class NetModel extends BaseModel {
 		}
 	}
 
-	public function isTurnedOn() {
-		return false;
+	public function isTurnedOn($ip) {
+		$ip = 'www.seznam.cz';
+		$curl = curl_init('http://'.$ip);
+		$content = curl_getinfo($curl);
+		$turnedOn = $content['http_code'] == 200? true :false;
+		return $turnedOn;
 	}
 
 }
