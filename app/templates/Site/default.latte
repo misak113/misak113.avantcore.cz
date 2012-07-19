@@ -7,25 +7,28 @@
 
 <div id="content">
 
-	<table id="computers">
-		<tr>
-			<th>Název</th>
-			<th>IP</th>
-			<th>MAC</th>
-			<th>Status</th>
-		</tr>
-		<tr n:foreach="$computers as $name => $computer" id="computer_{$name}">
-			<td>{$name}</td>
-			<td>{$computer['ip']}</td>
-			<td>{$computer['mac']}</td>
-			<td>
-				<a href="#" id="computer_wakeOn_{$name}" class="computer_wakeOn" data-name="{$name}">
-					<img src="{$basePath}/images/offline.gif" alt="offline" title="offline" id="computer_status_{$name}" class="computer_status" data-name="{$name}" />
-				</a>
-			</td>
+	<div class="content-box">
+		<h1>Počítače</h1>
+		<table id="computers">
+			<tr>
+				<th>Název</th>
+				<th>IP</th>
+				<th>MAC</th>
+				<th>Status</th>
+			</tr>
+			<tr n:foreach="$computers as $name => $computer" id="computer_{$name}">
+				<td>{$name}</td>
+				<td>{$computer['ip']}</td>
+				<td>{$computer['mac']}</td>
+				<td>
+					<a href="#" id="computer_wakeOn_{$name}" class="computer_wakeOn" data-name="{$name}">
+						<img src="{$basePath}/images/offline.gif" alt="offline" title="offline" id="computer_status_{$name}" class="computer_status" data-name="{$name}" />
+					</a>
+				</td>
 
-		</tr>
-	</table>
+			</tr>
+		</table>
+	</div>
 	
 </div>
 
