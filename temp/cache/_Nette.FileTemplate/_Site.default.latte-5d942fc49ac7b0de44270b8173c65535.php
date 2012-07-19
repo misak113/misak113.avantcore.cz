@@ -1,18 +1,18 @@
-<?php //netteCache[01]000434a:2:{s:4:"time";s:21:"0.12412700 1342692184";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:111:"C:\Users\misak113\programing\internet\apache2.2\own_webs\misak113.avantcore.cz\app\templates\Site\default.latte";i:2;i:1342692131;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"94abcaa released on 2012-02-29";}}}?><?php
+<?php //netteCache[01]000434a:2:{s:4:"time";s:21:"0.35194200 1342714103";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:111:"C:\Users\misak113\programing\internet\apache2.2\own_webs\misak113.avantcore.cz\app\templates\Site\default.latte";i:2;i:1342713896;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"94abcaa released on 2012-02-29";}}}?><?php
 
 // source file: C:\Users\misak113\programing\internet\apache2.2\own_webs\misak113.avantcore.cz\app\templates\Site\default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'q8tvnpp5ff')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '4gz318cszx')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb76d978f707_content')) { function _lb76d978f707_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lbcd44101654_content')) { function _lbcd44101654_content($_l, $_args) { extract($_args)
 ?><div id="banner">
-	<h1>Misak113 - WEB</h1>
+	<h1>Router Misak</h1>
 </div>
 
 <div id="content">
@@ -28,7 +28,7 @@ if (!function_exists($_l->blocks['content'][] = '_lb76d978f707_content')) { func
 			</tr>
 <?php $iterations = 0; foreach ($computers as $name => $computer): ?>			<tr id="computer_<?php echo htmlSpecialChars($name) ?>">
 				<td><?php echo Nette\Templating\Helpers::escapeHtml($name, ENT_NOQUOTES) ?></td>
-				<td><?php echo Nette\Templating\Helpers::escapeHtml($computer['ip'], ENT_NOQUOTES) ?></td>
+				<td><a href="<?php echo htmlSpecialChars($computer['httpUrl']) ?>" target="_blank"><?php echo Nette\Templating\Helpers::escapeHtml($computer['ip'], ENT_NOQUOTES) ?></a></td>
 				<td><?php echo Nette\Templating\Helpers::escapeHtml($computer['mac'], ENT_NOQUOTES) ?></td>
 				<td>
 					<a href="#" id="computer_wakeOn_<?php echo htmlSpecialChars($name) ?>" class="computer_wakeOn" data-name="<?php echo htmlSpecialChars($name) ?>">
@@ -50,7 +50,7 @@ if (!function_exists($_l->blocks['content'][] = '_lb76d978f707_content')) { func
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lb6c4290fbe9_head')) { function _lb6c4290fbe9_head($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['head'][] = '_lb7a3b2170a1_head')) { function _lb7a3b2170a1_head($_l, $_args) { extract($_args)
 ?><script type="text/javascript" src="<?php echo htmlSpecialChars($basePath) ?>/js/misak.js"></script>
 
 <?php

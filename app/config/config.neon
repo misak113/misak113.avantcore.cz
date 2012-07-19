@@ -6,6 +6,7 @@
 #
 common:
 	parameters:
+		domain: misak113.avantcore.cz
 		database:
 			driver: mysql
 			host: 
@@ -18,15 +19,27 @@ common:
 			samuel: #Samuel
 				mac: "90:2B:34:12:09:32"
 				ip: "192.168.1.215"
+				forwardPort: 8085
 			kate: #Káťa Wifi
 				mac: "D0:DF:9A:53:E3:99"
 				ip: "192.168.1.234"
+				forwardPort: 8089
 			routerRemote: # Vzdálený přístup router
 				mac: ""
 				ip: "misak113.avantocre.cz"
+				forwardPort: 
 			test:
 				mac: ""
 				ip: "www.google.com"
+				forwardPort:
+
+
+		users:
+			misak113:
+				id: 1
+				name: Michael Žabka
+				password: e3f013022003933ec0f00eb8fb46f06441109435
+				role: admin
 
 	php:
 		date.timezone: Europe/Prague
@@ -48,7 +61,7 @@ common:
 	services:
 		database: @Nette\Database\Connection
 
-		authenticator: Authenticator( @database::table(users) )
+		authenticator: Misak\Model\Authenticator()
 
 
 # Models

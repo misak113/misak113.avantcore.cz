@@ -1,23 +1,25 @@
 <?php
 
+namespace Misak\Model;
+
 use Nette\Security as NS;
+use Framework\BaseModel;
 
 
 /**
  * Users authenticator.
  *
- * @author     John Doe
- * @package    MyApplication
+ * @author     Michael Žabka
  */
-class Authenticator extends Nette\Object implements NS\IAuthenticator
+class Authenticator extends BaseModel implements NS\IAuthenticator
 {
 	/** @var Nette\Database\Table\Selection */
 	private $users;
 
 
 
-	public function __construct(Nette\Database\Table\Selection $users)
-	{
+	public function setContext() {
+		$users = $this->context->parameters['users'];
 		$this->users = $users;
 	}
 
@@ -32,18 +34,17 @@ class Authenticator extends Nette\Object implements NS\IAuthenticator
 	public function authenticate(array $credentials)
 	{
 		list($username, $password) = $credentials;
-		$row = $this->users->where('username', $username)->fetch();
-
-		if (!$row) {
+		if (!isset($this->users[$username])) {
 			throw new NS\AuthenticationException("User '$username' not found.", self::IDENTITY_NOT_FOUND);
 		}
+		$user = $this->users[$username];
 
-		if ($row->password !== $this->calculateHash($password)) {
+		if ($user['password'] !== $this->calculateHash($password)) {
 			throw new NS\AuthenticationException("Invalid password.", self::INVALID_CREDENTIAL);
 		}
 
-		unset($row->password);
-		return new NS\Identity($row->id, $row->role, $row->toArray());
+		unset($user['password']);
+		return new NS\Identity($user['id'], $user['role'], $user);
 	}
 
 
@@ -55,7 +56,7 @@ class Authenticator extends Nette\Object implements NS\IAuthenticator
 	 */
 	public function calculateHash($password)
 	{
-		return md5($password . str_repeat('*enter any random salt here*', 10));
+		return sha1($password);
 	}
 
 }

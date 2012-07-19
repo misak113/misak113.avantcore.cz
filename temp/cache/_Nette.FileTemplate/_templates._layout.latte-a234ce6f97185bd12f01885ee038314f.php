@@ -1,16 +1,16 @@
-<?php //netteCache[01]000429a:2:{s:4:"time";s:21:"0.18445500 1342534785";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:106:"C:\Users\misak113\programing\internet\apache2.2\own_webs\misak113.avantcore.cz\app\templates\@layout.latte";i:2;i:1342534768;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"94abcaa released on 2012-02-29";}}}?><?php
+<?php //netteCache[01]000429a:2:{s:4:"time";s:21:"0.87304600 1342713248";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:106:"C:\Users\misak113\programing\internet\apache2.2\own_webs\misak113.avantcore.cz\app\templates\@layout.latte";i:2;i:1342713247;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"94abcaa released on 2012-02-29";}}}?><?php
 
 // source file: C:\Users\misak113\programing\internet\apache2.2\own_webs\misak113.avantcore.cz\app\templates\@layout.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'pawn7f2t00')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'kgh6cbyeje')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lb0a35fe827f_head')) { function _lb0a35fe827f_head($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['head'][] = '_lbb2d0062b1c_head')) { function _lbb2d0062b1c_head($_l, $_args) { extract($_args)
 ;
 }}
 

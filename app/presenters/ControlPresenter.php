@@ -15,6 +15,13 @@ class ControlPresenter extends BasePresenter {
 	/** @var NetModel */
 	protected $netModel;
 
+	public function beforeRender() {
+		if (!$this->getUser()->isInRole('admin')) {
+			$this->redirect('Sign:in');
+		}
+	}
+
+
 	public function setContext(NetModel $netModel) {
 		$this->netModel = $netModel;
 	}
@@ -25,13 +32,14 @@ class ControlPresenter extends BasePresenter {
 	public function renderTurnedOn() {
 		$pcName = $this->getParameter('name', NULL);
 		$payload = $this->payload;
-		if (!isset($this->context->parameters['computers'][$pcName])) {
+		$computers = $this->netModel->getComputers();
+		if (!isset($computers[$pcName])) {
 			$payload->status = 'error';
 			$payload->message = 'Bad computer name.';
 			$response = new JsonResponse($payload);
 			$this->sendResponse($response);
 		}
-		$pc = $this->context->parameters['computers'][$pcName];
+		$pc = $computers[$pcName];
 		$payload->status = 'ok';
 		$payload->turnedOn = $this->netModel->isTurnedOn($pc['ip']);
 
@@ -42,13 +50,14 @@ class ControlPresenter extends BasePresenter {
 	public function renderWakeOn() {
 		$pcName = $this->getParameter('name', NULL);
 		$payload = $this->payload;
-		if (!isset($this->context->parameters['computers'][$pcName])) {
+		$computers = $this->netModel->getComputers();
+		if (!isset($computers[$pcName])) {
 			$payload->status = 'error';
 			$payload->message = 'Bad computer name.';
 			$response = new JsonResponse($payload);
 			$this->sendResponse($response);
 		}
-		$pc = $this->context->parameters['computers'][$pcName];
+		$pc = $computers[$pcName];
 		
 		// Port number where the computer is listening. Usually, any number between 1-50000 will do. Normally people choose 7 or 9.
 		$socket_number = "7";

@@ -2,7 +2,7 @@
 
 {block content}
 <div id="banner">
-	<h1>Misak113 - WEB</h1>
+	<h1>Router Misak</h1>
 </div>
 
 <div id="content">
@@ -18,7 +18,7 @@
 			</tr>
 			<tr n:foreach="$computers as $name => $computer" id="computer_{$name}">
 				<td>{$name}</td>
-				<td>{$computer['ip']}</td>
+				<td><a href="{$computer['httpUrl']}" target="_blank">{$computer['ip']}</a></td>
 				<td>{$computer['mac']}</td>
 				<td>
 					<a href="#" id="computer_wakeOn_{$name}" class="computer_wakeOn" data-name="{$name}">

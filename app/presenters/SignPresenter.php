@@ -43,12 +43,12 @@ class SignPresenter extends BasePresenter
 		try {
 			$values = $form->getValues();
 			if ($values->remember) {
-				$this->getUser()->setExpiration('+ 14 days', FALSE);
+				$this->getUser()->setExpiration('+ 3 hours', FALSE);
 			} else {
 				$this->getUser()->setExpiration('+ 20 minutes', TRUE);
 			}
 			$this->getUser()->login($values->username, $values->password);
-			$this->redirect('Homepage:');
+			$this->redirect('Site:');
 
 		} catch (NS\AuthenticationException $e) {
 			$form->addError($e->getMessage());

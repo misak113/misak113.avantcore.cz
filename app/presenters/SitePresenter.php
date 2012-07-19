@@ -6,13 +6,18 @@ use Misak\Application\BasePresenter;
 /**
  * Homepage presenter.
  *
- * @author     John Doe
- * @package    MyApplication
+ * @author     Michael Žabka
  */
 class SitePresenter extends BasePresenter {
 
 	/** @var NetModel */
 	protected $netModel;
+
+	public function beforeRender() {
+		if (!$this->getUser()->isInRole('admin')) {
+			$this->redirect('Sign:in');
+		}
+	}
 
 	public function setContext(NetModel $netModel) {
 		$this->netModel = $netModel;
@@ -20,7 +25,7 @@ class SitePresenter extends BasePresenter {
 
 	public function renderDefault() {
 
-		$computers = $this->context->parameters['computers'];
+		$computers = $this->netModel->getComputers();
 		$this->template->computers = $computers;
 	}
 

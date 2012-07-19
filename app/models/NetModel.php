@@ -12,6 +12,7 @@ use Nette\Application\AbortException;
  * @author misak113
  */
 class NetModel extends BaseModel {
+
 	
 
 	public function wakeOnLan($addr, $mac, $socket_number) {
