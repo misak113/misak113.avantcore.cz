@@ -18,6 +18,15 @@ common:
 			samuel: #Samuel
 				mac: "90:2B:34:12:09:32"
 				ip: "192.168.1.215"
+			kate: #Káťa Wifi
+				mac: "D0:DF:9A:53:E3:99"
+				ip: "192.168.1.234"
+			routerRemote: # Vzdálený přístup router
+				mac: ""
+				ip: "misak113.avantocre.cz"
+			test:
+				mac: ""
+				ip: "www.google.com"
 
 	php:
 		date.timezone: Europe/Prague

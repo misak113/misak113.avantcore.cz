@@ -4,6 +4,7 @@ namespace Misak\Model;
 
 use Framework\BaseModel;
 use Nette\Database\Connection;
+use Nette\Application\AbortException;
 
 /**
  * Description of NetModel
@@ -17,6 +18,10 @@ class NetModel extends BaseModel {
 		$return = array();
 
 		$addr_byte = explode(':', $mac);
+		if (count($addr_byte) != 6) {
+			throw new AbortException('MAC adresa musí být ve tvaru XX:XX:XX:XX:XX:XX');
+		}
+
 		$hw_addr = '';
 		for ($a = 0; $a < 6; $a++) {
 			$hw_addr .= chr(hexdec($addr_byte[$a]));
