@@ -9,7 +9,7 @@ common:
 		domain: misak113.avantcore.cz
 		database:
 			driver: mysql
-			host: 
+			host: localhost
 			dbname: misak113_avantcore_cz
 			user: root
 			password: 

@@ -1,21 +1,25 @@
-<?php //netteCache[01]000434a:2:{s:4:"time";s:21:"0.35194200 1342714103";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:111:"C:\Users\misak113\programing\internet\apache2.2\own_webs\misak113.avantcore.cz\app\templates\Site\default.latte";i:2;i:1342713896;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"94abcaa released on 2012-02-29";}}}?><?php
+<?php //netteCache[01]000434a:2:{s:4:"time";s:21:"0.53563200 1344506062";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:111:"C:\Users\misak113\programing\internet\apache2.2\own_webs\misak113.avantcore.cz\app\templates\Site\default.latte";i:2;i:1344506059;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"94abcaa released on 2012-02-29";}}}?><?php
 
 // source file: C:\Users\misak113\programing\internet\apache2.2\own_webs\misak113.avantcore.cz\app\templates\Site\default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '4gz318cszx')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'o0dxrokv2f')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbcd44101654_content')) { function _lbcd44101654_content($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['content'][] = '_lb61ff3c64b1_content')) { function _lb61ff3c64b1_content($_l, $_args) { extract($_args)
 ?><div id="banner">
 	<h1>Router Misak</h1>
 </div>
 
 <div id="content">
+
+	<div id="logout">
+		<a href="<?php echo htmlSpecialChars($_control->link("Sign:out")) ?>">Odhlásit</a>
+	</div>
 
 	<div class="content-box">
 		<h1>Počítače</h1>
@@ -50,7 +54,7 @@ if (!function_exists($_l->blocks['content'][] = '_lbcd44101654_content')) { func
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lb7a3b2170a1_head')) { function _lb7a3b2170a1_head($_l, $_args) { extract($_args)
+if (!function_exists($_l->blocks['head'][] = '_lbf58b94dc68_head')) { function _lbf58b94dc68_head($_l, $_args) { extract($_args)
 ?><script type="text/javascript" src="<?php echo htmlSpecialChars($basePath) ?>/js/misak.js"></script>
 
 <?php

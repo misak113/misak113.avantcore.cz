@@ -135,3 +135,37 @@ footer { font-size: 70%; padding: 1em 0; color: gray; }
 	background-color: #333;
 	color: #9F9C7F;
 }
+
+
+
+#sign-in {
+	margin: 20px;
+	padding: 20px;
+	-webkit-border-radius: 20px;
+	border: 1px solid whitesmoke;
+	background-color: gainsboro;
+}
+
+#sign-in input {
+	padding: 3px 7px;
+}
+
+
+#logout {
+	top: 10px;
+	right: 2px;
+	width: 100px;
+	position: absolute;
+	-webkit-border-radius: 4px;
+	background-color: #998;
+	padding: 2px 5px;
+	text-align: center;
+}
+#logout a {
+	color: whitesmoke;
+	text-decoration: none;
+}
+
+#content {
+	position: relative;
+}

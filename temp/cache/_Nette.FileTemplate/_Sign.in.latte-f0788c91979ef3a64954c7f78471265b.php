@@ -1,19 +1,25 @@
-<?php //netteCache[01]000429a:2:{s:4:"time";s:21:"0.38173200 1342714951";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:106:"C:\Users\misak113\programing\internet\apache2.2\own_webs\misak113.avantcore.cz\app\templates\Sign\in.latte";i:2;i:1342531707;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"94abcaa released on 2012-02-29";}}}?><?php
+<?php //netteCache[01]000429a:2:{s:4:"time";s:21:"0.70734300 1344505773";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:106:"C:\Users\misak113\programing\internet\apache2.2\own_webs\misak113.avantcore.cz\app\templates\Sign\in.latte";i:2;i:1344505771;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:30:"94abcaa released on 2012-02-29";}}}?><?php
 
 // source file: C:\Users\misak113\programing\internet\apache2.2\own_webs\misak113.avantcore.cz\app\templates\Sign\in.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'grrsbuzpye')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'iixzkhdpyk')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbf954b9ef2a_content')) { function _lbf954b9ef2a_content($_l, $_args) { extract($_args)
-?><h1>Sign in</h1>
+if (!function_exists($_l->blocks['content'][] = '_lba66286bf9c_content')) { function _lba66286bf9c_content($_l, $_args) { extract($_args)
+?><div id="sign-in">
 
-<?php $_ctrl = $_control->getComponent("signInForm"); if ($_ctrl instanceof Nette\Application\UI\IRenderable) $_ctrl->validateControl(); $_ctrl->render() ;
+	<h1>Přihlášení</h1>
+
+	<hr />
+
+<?php $_ctrl = $_control->getComponent("signInForm"); if ($_ctrl instanceof Nette\Application\UI\IRenderable) $_ctrl->validateControl(); $_ctrl->render() ?>
+
+</div><?php
 }}
 
 //

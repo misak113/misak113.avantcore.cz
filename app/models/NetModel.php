@@ -54,9 +54,12 @@ class NetModel extends BaseModel {
 		}
 	}
 
-	public function isTurnedOn($ip) {
-		//$ip = 'www.seznam.cz';
-		$turnedOn = $this->urlExists('http://'.$ip);
+	public function isTurnedOn($pc) {
+		$turnedOn = $this->urlExists('http://'.$this->context->parameters['domain'].':'.$pc['forwardPort']);
+		if ($turnedOn) {
+			return true;
+		}
+		$turnedOn = $this->urlExists('http://'.$pc['ip']);
 		return $turnedOn;
 	}
 
@@ -66,9 +69,9 @@ class NetModel extends BaseModel {
 			$a_url['port'] = 80;
 		$errno = 0;
 		$errstr = '';
-		$timeout = 30;
+		$timeout = 1;
 		if (isset($a_url['host']) && $a_url['host'] != gethostbyname($a_url['host'])) {
-			$fid = fsockopen($a_url['host'], $a_url['port'], $errno, $errstr, $timeout);
+			$fid = @fsockopen($a_url['host'], $a_url['port'], $errno, $errstr, $timeout);
 			if (!$fid)
 				return false;
 			$page = isset($a_url['path']) ? $a_url['path'] : '';

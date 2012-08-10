@@ -41,7 +41,7 @@ class ControlPresenter extends BasePresenter {
 		}
 		$pc = $computers[$pcName];
 		$payload->status = 'ok';
-		$payload->turnedOn = $this->netModel->isTurnedOn($pc['ip']);
+		$payload->turnedOn = $this->netModel->isTurnedOn($pc);
 
 		$response = new JsonResponse($payload);
 		$this->sendResponse($response);
