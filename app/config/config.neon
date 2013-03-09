@@ -75,7 +75,7 @@ production < common:
 	parameters:
 		database:
 			host: 192.168.1.215
-			password: cvpp7mdz
+			password: misak
 
 development < common:
 	parameters:
